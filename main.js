@@ -18,11 +18,11 @@ const Keyboard = {
   init() {
       // Create main elements
       
-      this.elements.textarea = document.createElement("textarea");
       this.elements.main = document.createElement("div");
+      this.elements.inp = document.createElement("textarea");
       this.elements.keysContainer = document.createElement("div");
       // Setup main elements
-      this.elements.textarea.classList.add("use-keyboard-input");
+      this.elements.inp.classList.add("use-keyboard-input");
       this.elements.main.classList.add("keyboard", "keyboard--hidden");
       this.elements.keysContainer.classList.add("keyboard__keys");
       this.elements.keysContainer.appendChild(this._createKeys());
@@ -31,8 +31,8 @@ const Keyboard = {
 
       // Add to DOM
       this.elements.main.appendChild(this.elements.keysContainer);
-      document.body.appendChild(this.elements.main);
-      this.elements.textarea.appendChild(this.elements.keysContainer);
+      document.body.appendChild(this.elements.inp);
+      
       document.body.appendChild(this.elements.main);
 
       // Automatically use keyboard for elements with .use-keyboard-input
@@ -48,11 +48,11 @@ const Keyboard = {
   _createKeys() {
       const fragment = document.createDocumentFragment();
       const keyLayout = [
-          "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-          "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-          "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-          "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-          "space"
+          "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+", "backspace",
+          "TAB", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
+          "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "enter",
+          "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shiftr",
+          "ctrl", "win", "ALT", "space", "ALT", "win", "ctrl" 
       ];
 
       // Creates HTML for an icon
@@ -62,7 +62,7 @@ const Keyboard = {
 
       keyLayout.forEach(key => {
           const keyElement = document.createElement("button");
-          const insertLineBreak = ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
+          const insertLineBreak = ["backspace", "]", "enter", "shiftr"].indexOf(key) !== -1;
 
           // Add attributes/classes
           keyElement.setAttribute("type", "button");
@@ -81,8 +81,8 @@ const Keyboard = {
                   break;
 
               case "caps":
-                  keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-                  keyElement.innerHTML = createIconHTML("keyboard_capslock");
+                  keyElement.classList.add("keyboard__key--caps", "keyboard__key--activatable");
+                  keyElement.innerHTML = createIconHTML("caps");
 
                   keyElement.addEventListener("click", () => {
                       this._toggleCapsLock();
@@ -90,10 +90,40 @@ const Keyboard = {
                   });
 
                   break;
+              case "shift":
+                  keyElement.classList.add("keyboard__key--shift", "keyboard__key--activatable");
+                  keyElement.innerHTML = createIconHTML("shift");
+
+                  keyElement.addEventListener("click", () => {
+                      this._toggleCapsLock();
+                      keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+                  });
+
+                  break;
+              case "shiftr":
+                  keyElement.classList.add("keyboard__key--shift", "keyboard__key--activatable");
+                  keyElement.innerHTML = createIconHTML("shift");
+
+                  keyElement.addEventListener("click", () => {
+                      this._toggleCapsLock();
+                      keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+                  });
+
+                  break;
+              case "TAB":
+                  keyElement.classList.add("keyboard__key--tab", "keyboard__key--activatable");
+                  keyElement.innerHTML = createIconHTML("TAB");
+
+                  keyElement.addEventListener("click", () => {
+                    this.properties.value += "    ";
+                    this._triggerEvent("oninput");
+                  });
+
+                  break;
 
               case "enter":
-                  keyElement.classList.add("keyboard__key--wide");
-                  keyElement.innerHTML = createIconHTML("keyboard_return");
+                  keyElement.classList.add("keyboard__key--ent");
+                  keyElement.innerHTML = createIconHTML("ENT");
 
                   keyElement.addEventListener("click", () => {
                       this.properties.value += "\n";
