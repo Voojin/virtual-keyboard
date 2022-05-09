@@ -37,7 +37,6 @@ textarea {
 .keyboard__key {
   position: relative;
   height: 45px;
-  width: 2.81rem;
   width: 4%;
   
   margin: 5px;
@@ -62,32 +61,25 @@ textarea {
 }
 
 .keyboard__key--wide {
-  width: 5.625rem;
   width: 7%;
 }
 .keyboard__key--tab {
-  width: 9.0625rem;
   width: 7.27%;
 }
 .keyboard__key--caps {
-  width: 4.0625rem;
   width: 5.337%;
 }
 .keyboard__key--ent {
-  width: 4.375rem;
   width: 5.675%;
 }
 .keyboard__key--shift {
-  width: 7.95625rem;
   width: 11.4%;
 }
 .keyboard__key--shiftr {
-  width: 7.95625rem;
   width: 4.2%;
 }
 
 .keyboard__key--widesh {
-  width: 10.625rem;
   width: 12.34%;
 }
 
