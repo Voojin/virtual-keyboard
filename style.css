@@ -6,7 +6,10 @@ textarea {
   left: 0;
   top: 0;
   resize: none;
-  background-color: rgb(179, 205, 253);
+  background-color: rgb(2, 20, 54);
+  color: orange;
+  padding: 2%;
+  
 }
 
 .keyboard {
@@ -91,11 +94,11 @@ textarea {
 
 .keyboard__key--activatable::after {
   content: '';
-  /* top: 10px;
+  top: 10px;
   right: 10px;
   position: absolute;
   width: 8px;
-  height: 8px; */
+  height: 8px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
 }

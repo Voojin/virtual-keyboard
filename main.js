@@ -51,7 +51,7 @@ const Keyboard = {
           "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+", "backspace",
           "TAB", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
           "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "enter",
-          "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shiftr",
+          "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shiftr", 
           "ctrl", "win", "ALT", "space", "ALT", "win", "ctrl" 
       ];
 
