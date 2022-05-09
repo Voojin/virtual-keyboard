@@ -67,7 +67,7 @@ textarea {
 }
 .keyboard__key--tab {
   width: 9.0625rem;
-  width: 11.77%;
+  width: 7.27%;
 }
 .keyboard__key--caps {
   width: 4.0625rem;
@@ -79,7 +79,11 @@ textarea {
 }
 .keyboard__key--shift {
   width: 7.95625rem;
-  width: 10.2%;
+  width: 11.4%;
+}
+.keyboard__key--shiftr {
+  width: 7.95625rem;
+  width: 4.2%;
 }
 
 .keyboard__key--widesh {
@@ -88,11 +92,23 @@ textarea {
 }
 
 .keyboard__key--extra-wide {
-  width: 40.14%;
+  width: 35.2%;
   
 }
-
+.active {
+  background-color: red;
+}
 .keyboard__key--activatable::after {
+  content: '';
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+}
+.keyboard__key--activatablesh::after {
   content: '';
   top: 10px;
   right: 10px;
@@ -105,6 +121,9 @@ textarea {
 
 .keyboard__key--active::after {
   background: #08ff00;
+}
+.keyboard__key--activesh::after {
+  background: #db0000;
 }
 
 .keyboard__key--dark {

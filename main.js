@@ -49,10 +49,10 @@ const Keyboard = {
       const fragment = document.createDocumentFragment();
       const keyLayout = [
           "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+", "backspace",
-          "TAB", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
+          "TAB", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "", "]",
           "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "enter",
-          "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shiftr", 
-          "ctrl", "win", "ALT", "space", "ALT", "win", "ctrl" 
+          "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "↑", "shiftr", 
+          "ctrl", "win", "ALT", "space", "ALT", "←", "↓", "→" 
       ];
 
       // Creates HTML for an icon
@@ -96,17 +96,17 @@ const Keyboard = {
 
                   keyElement.addEventListener("click", () => {
                       this._toggleCapsLock();
-                      keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+                      keyElement.classList.toggle("keyboard__key--activesh", this.properties.capsLock);
                   });
 
                   break;
               case "shiftr":
-                  keyElement.classList.add("keyboard__key--shift", "keyboard__key--activatable");
+                  keyElement.classList.add("keyboard__key--shiftr", "keyboard__key--activatable");
                   keyElement.innerHTML = createIconHTML("shift");
 
                   keyElement.addEventListener("click", () => {
                       this._toggleCapsLock();
-                      keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+                      keyElement.classList.toggle("keyboard__key--activesh", this.properties.capsLock);
                   });
 
                   break;
@@ -119,6 +119,15 @@ const Keyboard = {
                     this._triggerEvent("oninput");
                   });
 
+                  break;
+              case "ctrl":
+                  keyElement.innerHTML = createIconHTML("ctrl");
+                  break;
+              case "win":
+                  keyElement.innerHTML = createIconHTML("win");
+                  break;
+              case "ALT":
+                  keyElement.innerHTML = createIconHTML("ALT");
                   break;
 
               case "enter":
@@ -209,3 +218,5 @@ const Keyboard = {
 window.addEventListener("DOMContentLoaded", function () {
   Keyboard.init();
 });
+
+
